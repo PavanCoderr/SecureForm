@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SecureForm — Smart Form Validation</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="background-orb orb1"></div><div class="background-orb orb2"></div>
+
+<main class="app-shell">
+  <section class="hero">
+    <div class="badge">SECUREFORM • FORM VALIDATION LAB</div>
+    <h1>Smart Login & Signup<br><span>Validation System</span></h1>
+    <p>A client-side prototype combining real-time validation, password intelligence, strength analysis, accessibility feedback, and security-minded UX.</p>
+  </section>
+
+  <section class="card">
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-mode="signup">Create Account</button>
+      <button class="tab" data-mode="login">Login</button>
+    </div>
+
+    <div id="status" class="status" aria-live="polite"></div>
+
+    <form id="authForm" novalidate>
+      <div id="nameGroup" class="field">
+        <label for="name">Full name</label>
+        <input id="name" name="name" type="text" autocomplete="name" placeholder="Aditya Sharma">
+        <small class="hint">Use 2–60 characters.</small>
+        <small class="error"></small>
+      </div>
+
+      <div class="field">
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com">
+        <small class="hint">We'll validate the format and common mistakes.</small>
+        <small class="error"></small>
+      </div>
+
+      <div class="field">
+        <label for="password">Password</label>
+        <div class="password-wrap">
+          <input id="password" name="password" type="password" autocomplete="new-password" placeholder="Create a strong password">
+          <button type="button" class="icon-btn" id="togglePassword" aria-label="Show password">Show</button>
+        </div>
+        <div class="meter"><div id="meterBar"></div></div>
+        <div class="strength-row"><span id="strengthText">Strength: —</span><span id="scoreText">0/5</span></div>
+        <ul id="requirements" class="requirements">
+          <li data-rule="length">At least 8 characters</li>
+          <li data-rule="upper">One uppercase letter</li>
+          <li data-rule="lower">One lowercase letter</li>
+          <li data-rule="number">One number</li>
+          <li data-rule="symbol">One special character</li>
+        </ul>
+        <small class="error"></small>
+      </div>
+
+      <div id="confirmGroup" class="field">
+        <label for="confirm">Confirm password</label>
+        <div class="password-wrap">
+          <input id="confirm" name="confirm" type="password" autocomplete="new-password" placeholder="Re-enter your password">
+          <button type="button" class="icon-btn" id="toggleConfirm" aria-label="Show confirmation password">Show</button>
+        </div>
+        <small class="error"></small>
+      </div>
+
+      <label id="termsGroup" class="checkbox-row">
+        <input id="terms" type="checkbox">
+        <span>I agree to the Terms of Service and acknowledge the privacy notice.</span>
+      </label>
+      <small id="termsError" class="error standalone"></small>
+
+      <button class="submit-btn" type="submit" id="submitBtn">Create secure account</button>
+      <p class="demo-note">Demo only: no credentials are transmitted or stored.</p>
+    </form>
+  </section>
+
+  <aside class="feature-grid">
+    <article><b>⚡ Live validation</b><span>Errors appear while you type, not only after submission.</span></article>
+    <article><b>🛡 Password intelligence</b><span>Rule-by-rule checks, strength score and common-pattern detection.</span></article>
+    <article><b>♿ Accessible feedback</b><span>Labels, focus states and ARIA live status support inclusive UX.</span></article>
+    <article><b>🔒 Privacy-first demo</b><span>Everything runs locally in the browser for this prototype.</span></article>
+  </aside>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
